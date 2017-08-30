@@ -7,8 +7,6 @@ using System;
 
 public class LoadManager : MonoBehaviour {
 
-    
-
     [Header ("UI Elements")]
 
     [SerializeField]

@@ -157,6 +157,10 @@ public class PointCloudManager : MonoBehaviour {
 		}
 		InstantiateMesh (numPointGroups-1, numPoints- (numPointGroups-1) * limitPoints);
 
+
+
+
+
 		//Store PointCloud
 		UnityEditor.PrefabUtility.CreatePrefab ("Assets/Resources/PointCloudMeshes/" + filename + ".prefab", pointCloud);
 
