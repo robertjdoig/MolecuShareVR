@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class MeshController : MonoBehaviour {
 
-   // GameObject cyl; 
-
-
-
     [SerializeField]
     private MeshFilter[] meshFilters;
 
@@ -18,10 +14,6 @@ public class MeshController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         meshFilters = GetComponentsInChildren<MeshFilter>();
-
-        //cyl = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        //cyl.transform.position = gameObject.transform.position;
-        //cyl.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
 	}
 	
 	// Update is called once per frame
@@ -40,10 +32,6 @@ public class MeshController : MonoBehaviour {
         /** Object Rotation */
        // objRot = transform.rotation.eulerAngles;
        
-      //  cyl.transform.position = ofset;
-
-
-
         Debug.Log("Controller" + centerPosition + "ofset" + ofset, gameObject);
 
         for (int mf = 0; mf < meshFilters.Length; mf++)

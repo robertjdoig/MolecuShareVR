@@ -1,6 +1,5 @@
-﻿namespace VRTK
-{
-
+﻿namespace VRTK {
+     
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
