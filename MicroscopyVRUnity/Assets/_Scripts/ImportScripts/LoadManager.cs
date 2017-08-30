@@ -104,8 +104,6 @@ public class LoadManager : MonoBehaviour {
         current_PC_Manager.importPoints();
     }
 
-
-
     public void loadPoints()
     {
         switch (importAll){
@@ -115,28 +113,18 @@ public class LoadManager : MonoBehaviour {
                 break;
             case true:
                 string[] path = Directory.GetFiles(Application.dataPath  + drop_folder,"*.off");
-                //path[0] = path[0].Substring(0, path[0].Length - 4);
-                //path[0] = reverseString(path[0]);
 
                 string s;
-                for(int i = 0; i < path.Length; i++)
-                {
-                    path[i] = reverseString(path[i]);
+                for(int i = 0; i < path.Length; i++){
                     s = path[i];
-
-                    for (int c = 0; c < s.Length; c++)
-                    {
-                        if (s[c].Equals('/'))
-                        {
-                            s = s.Substring(4, c-4);
-                        }
-                    }
                     s = reverseString(s);
+                    s = cutString(s, '/');
+                    s = reverseString(s);
+                    s = cutString(s, '.');
                     path[i] = s;
                 }
 
                 datapaths = new string[path.Length];
-                //datapaths = extractName(path);
                 datapaths = path;
 
                 break;
@@ -144,6 +132,16 @@ public class LoadManager : MonoBehaviour {
 
         counter = 0;
         isImporting = true;
+    }
+
+    private string cutString(string s, char key){
+        string _s = s;
+        for (int c = 0; c < _s.Length; c++){
+            if (_s[c].Equals(key)){
+                _s = _s.Substring(0, c);
+            }
+        }
+        return _s;
     }
 
     string reverseString(string s){

@@ -40,14 +40,12 @@ public class ModelLoader : MonoBehaviour {
         modelPaths = Directory.GetFiles(Application.dataPath + "/Resources/PointCloudMeshes/", "*.prefab");
 
         string s;
-        for (int i = 0; i < modelPaths.Length; i++)
-        {
+        for (int i = 0; i < modelPaths.Length; i++){
             s = modelPaths[i];
             s = reverseString(s);
             s = cutString(s, '/');
 
             s = reverseString(s);
-
             s = cutString(s, '.');
 
             modelPaths[i] = s;
