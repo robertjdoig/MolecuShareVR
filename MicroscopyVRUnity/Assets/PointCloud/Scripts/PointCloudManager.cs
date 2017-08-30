@@ -147,7 +147,7 @@ public class PointCloudManager : MonoBehaviour {
 		numPointGroups = Mathf.CeilToInt (numPoints*1.0f / limitPoints*1.0f);
 
 		pointCloud = new GameObject (filename);
-
+        pointCloud.tag = "PointCloud";
 		for (int i = 0; i < numPointGroups-1; i ++) {
 			InstantiateMesh (i, limitPoints);
 			if (i%10==0){

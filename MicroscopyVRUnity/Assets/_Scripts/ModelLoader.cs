@@ -48,6 +48,13 @@
             instance.AddComponent<VRTK_FixedJointGrabAttach>();
             instance.AddComponent<VRTK_InteractableObject>();
 
+            /** Model Controllers Components */ 
+            instance.AddComponent<Model_Controller>();
+            if(instance.tag == "PointCloud") {
+                instance.AddComponent<MeshController>();
+            }
+           
+            
         }
 
         public void refreshFilePaths() {
