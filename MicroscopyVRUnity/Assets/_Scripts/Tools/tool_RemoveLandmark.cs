@@ -38,7 +38,10 @@
             //isPressed = true;
 
             if(isOverlapping == true){
-                Destroy(otherLandmark);
+                //Destroy(otherLandmark);
+
+                /** need to check the references in the rulers and delete the ruler first */
+                
             }
         }
 

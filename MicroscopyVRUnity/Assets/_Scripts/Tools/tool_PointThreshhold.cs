@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class point_threshhold : MonoBehaviour {
+    public class tool_PointThreshhold : MonoBehaviour {
 
         public GameObject otherGO;
 

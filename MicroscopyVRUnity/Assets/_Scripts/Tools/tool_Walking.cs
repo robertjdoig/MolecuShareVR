@@ -18,13 +18,10 @@
         private GameObject cameraRig;
 
         // Use this for initialization
-        void Start() {
-            //controller_events.triggerAxisChanged += new ControllerActionsEventHandler(DoAxisChanged);
-        }
+        void Start() { }
 
         // Update is called once per frame
         void Update() {
-
             cameraRig.transform.Rotate(new Vector3(0,controller_events.GetTouchpadAxis().x*rotation_speed,0));
             cameraRig.transform.Translate(Vector3.forward * controller_events.GetTouchpadAxis().y * forward_speed);
         }
