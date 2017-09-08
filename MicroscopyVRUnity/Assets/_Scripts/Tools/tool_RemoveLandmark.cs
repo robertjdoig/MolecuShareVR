@@ -1,52 +1,44 @@
-﻿namespace VRTK
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class tool_RemoveLandmark : VRTK.tool_template
 {
 
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
+    [SerializeField]
+    private GameObject otherLandmark;
 
-    public class tool_RemoveLandmark : MonoBehaviour
-    {
-        [SerializeField]
-        private VRTK_ControllerEvents controller_event;
+    [SerializeField]
+    private bool isOverlapping;
 
-        [SerializeField]
-        private GameObject otherLandmark;
+    // Use this for initialization
+    void Start(){}
 
-        [SerializeField]
-        private bool isOverlapping;
+    // Update is called once per frame
+    void Update(){}
 
-        // Use this for initialization
-        void Start(){
-            controller_event.TriggerPressed += new ControllerInteractionEventHandler(DoTriggerPressed);
-            controller_event.TriggerReleased += new ControllerInteractionEventHandler(DoTriggerReleased);
-        }
+    void OnTriggerEnter(Collider other){
+        otherLandmark = other.gameObject;
+        isOverlapping = true;
+    }
 
-        // Update is called once per frame
-        void Update(){}
+    void OnTriggerExit(Collider other){
+        isOverlapping = false;
+    }
 
-        void OnTriggerEnter(Collider other){
-            otherLandmark = other.gameObject;
-            isOverlapping = true;
-        }
+    override public void DoTriggerPressed(){
+        //isPressed = true;
 
-        void OnTriggerExit(Collider other){
-            isOverlapping = false;
-        }
+        if(isOverlapping == true){
+            //Destroy(otherLandmark);
 
-        private void DoTriggerPressed(object sender, ControllerInteractionEventArgs e){
-            //isPressed = true;
-
-            if(isOverlapping == true){
-                //Destroy(otherLandmark);
-
-                /** need to check the references in the rulers and delete the ruler first */
-                
-            }
-        }
-
-        private void DoTriggerReleased(object sender, ControllerInteractionEventArgs e){
-            //isPressed = false;
+            /** need to check the references in the rulers and delete the ruler first */
+            
         }
     }
+
+    override public void DoTriggerReleased(){
+        //isPressed = false;
+    }
 }
+

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class RadMenuSwitcher : MonoBehaviour {
 
@@ -8,6 +9,12 @@ public class RadMenuSwitcher : MonoBehaviour {
     private int debug; 
 
     private GameObject[] rads; 
+
+    [SerializeField]
+    private bool isSocket = false;
+
+    [SerializeField]
+    private GameObject controller;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +32,9 @@ public class RadMenuSwitcher : MonoBehaviour {
             if(i == State)
             {
                 rads[i].SetActive(true);
+                if(isSocket == true) { 
+                     controller.GetComponent<tool_InputController>().GetActiveTool(rads[i]);
+                }
             }
             else
             {

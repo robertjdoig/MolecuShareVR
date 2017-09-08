@@ -5,10 +5,7 @@
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class tool_AddRuler : MonoBehaviour
-    {
-        [SerializeField]
-        private VRTK_ControllerEvents controller_event;
+    public class tool_AddRuler : tool_template {
 
         [SerializeField]
         private GameObject ruler_prefab;
@@ -30,10 +27,7 @@
 
         private bool isPressed = false;
         // Use this for initialization
-        void Start(){
-            controller_event.TriggerPressed += new ControllerInteractionEventHandler(DoTriggerPressed);
-            controller_event.TriggerReleased += new ControllerInteractionEventHandler(DoTriggerReleased);
-        }
+        void Start(){}
 
         // Update is called once per frame
         void Update(){}
@@ -49,7 +43,7 @@
             current_landmark = other.gameObject;
         }
 
-        private void DoTriggerPressed(object sender, ControllerInteractionEventArgs e){
+        override public void DoTriggerPressed(){
             //isPressed = true;
 
             newRuler = Instantiate(ruler_prefab);
@@ -58,7 +52,7 @@
             newRuler.GetComponent<distToolTip>().p2 = gameObject;
         }
 
-        private void DoTriggerReleased(object sender, ControllerInteractionEventArgs e){
+        override public void DoTriggerReleased(){
             //isPressed = false;
 
             newRuler.GetComponent<distToolTip>().p2 = current_landmark;
